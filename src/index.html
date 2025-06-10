@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0070f3">
+    <meta name="description" content="Frontend Developer">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Spartan:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="font-sans text-gray-900 dark:text-white bg-white dark:bg-gray-800  transition-colors duration-300">
+    <!-- dark mode background gradients -->
+    <div class="fixed inset-0 -z-10 opacity-0 dark:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-600 via-transparent to-gray-900 "></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 dark:bg-gray-900 backdrop-blur-sm shadow-sm transition-all duration-300 ">
+        <div class="container mx-auto px-4  ">
+            <nav class="flex justify-between  items-center py-4 ">
+                <div class="flex items-center ">
+                    <img src="/assets/Profile.jpg" alt="Profile Picture" class="w-10 h-10 rounded-full mr-2">
+                    <span class="text-xl font-extrabold">Dheeraj Gupta</span>
+                    <span class="text-blue-400 text-2xl ml-1">•</span>
+                </div>
+                <ul class="hidden md:flex space-x-8   ">
+                    <li>
+                        <a href="#features"
+                            class="text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors">Showcase</a>
+                    </li>
+                    <li>
+                        <a href="#about"
+                            class="text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                    </li>
+                    <li>
+                        <a href="#skills"
+                            class="text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#projects"
+                            class="text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="text-gray-700 dark:text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
+                    </li>
+                </ul>
+                <div class="flex items-center space-x-4">
+                    <button id="themeToggle" class="">
+                        <i class="fa-solid fa-moon text-gray-600 dark:text-gray-400"></i>
+                    </button>
+                    <button class="md:hidden p-2" id="menuToggle">
+                        <div class="w-6 h-5 flex flex-col justify-between">
+                            <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
+                            <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
+                            <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
+                        </div>
+                    </button>
+
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed inset-0 bg-white dark:bg-gray-800 z-50 transform translate-x-full transition-all duration-1000 md:hidden">
+        <div class="container mx-auto px-4 h-full flex flex-col">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-xl font-extrabold">Dheeraj Gupta</span>
+                    <span class="text-blue-400 text-2xl ml-1">•</span>
+                </div>
+                <button id="closeMenu" class="p-2">
+                    <i class="fa-solid fa-square-xmark text-gray-600 dark:text-gray-400 text-2xl"></i>
+                </button>
+            </div>
+            <ul class="flex-1 flex flex-col justify-center items-center space-y-8">
+                <li>
+                    <a href="#features"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Showcase</a>
+                </li>
+                <li>
+                    <a href="#about"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">About</a>
+                </li>
+                <li>
+                    <a href="#skills"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Skills</a>
+                </li>
+                <li>
+                    <a href="#projets"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Projects</a>
+                </li>
+                <li>
+                    <a href="#contact"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center pt-20 pb-16 relative overflow-hidden ">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    The <span
+                        class="bg-gradient-to-r from-blue-400 via-purple-400 to-green-200 bg-clip-text text-transparent">Frontend
+                        Developer</span> For The Web
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8 ">
+                    Creating <strong>high-quality web applications</strong> with modern tools and best for exceptional
+                    user experiences
+                </p>
+                <div class="flex flex-col sm:flex-row  gap-4 justify-center mb-12">
+                    <a href="#projects"
+                        class="px-8 py-3 bg-blue-400 text-white rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1   hover:shadow-blue-300/30 dark:hover:shadow-blue-500/20 shadow-blue-200/20 dark:shadow-blue-700/10">
+                        View Projects
+                    </a>
+                    <a href="#about"
+                        class="px-8 py-3 bg-white dark:bg-gray-700 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-900 dark:hover:border-white ">Learn
+                        more</a>
+                </div>
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg max-w-2xl mx-auto"
+                    id="terminal-container">
+                    <div class="flex items-center space-x-2 p-3 bg-gray-200 dark:bg-gray-800">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                    </div>
+                    <div class="p-6 font-mono terminal-content">
+                        <span class="text-green-500">$</span>
+                        <span class="command-text text-gray-900 dark:text-white"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features"
+        class="py-24 bg-gray-50  dark:bg-gray-800  translate-y-4 transition-all duration-500 opacity-0">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4"> What's in m Toolkit</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 text-center mb-16">
+                Everthing needed to build great producs on the web.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature Card 1 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-gray-800/10 rounded-full flex items-center justify-center mb-6 ">
+                        <i class="fa-solid fa-paintbrush text-blue-400 text-xl "></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Modern UI Design</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Creating a beautiful, Responsive interface that look
+                        great on any device using the latest design trends.</p>
+                </div>
+                <!-- Feature Card 2 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-gray-800/10 rounded-full flex items-center justify-center mb-6 ">
+                        <i class="fa-solid fa-code text-blue-400 text-xl "></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Clean Code</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Writing maintainable, efficient code following best
+                        practices and modern development standards.</p>
+                </div>
+                <!-- Feature Card 3 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-gray-800/10 rounded-full flex items-center justify-center mb-6 ">
+                        <i class="fa-solid fa-bolt text-blue-400 text-xl "></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Performance Optimization</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Ensuring fast load times and smooth experience through
+                        efficient code and asset optimization.</p>
+                </div>
+                <!-- Feature Card 4 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-gray-800/10 rounded-full flex items-center justify-center mb-6 ">
+                        <i class="fa-solid fa-mobile-alt text-blue-400 text-xl "></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Responsive development</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Building websites that work flawlessly across all screen
+                        sizes, from phones to large displays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
+        <div class="container  mx-auto px-4 ">
+            <div class=" grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 ">About Me</h2>
+                    <p class=" text-xl text-gray-600 dark:text-gray-400 mb-6">
+                        I am a passionate frontend developer with a keen eye for design and a love for creating
+                        intuitive
+                        user experiences.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        With a background in computer science and a focus on web technologies, I specialize in building
+                        responsive, accessible, and performant web applications. I am always eager to learn new skills
+                        and
+                        stay updated with the latest trends in frontend development.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        When I'm not coding, you can find me exploring new technologies, contributing to open-source
+                        projects, or enjoying good books.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact"
+                            class="px-8 py-3 bg-blue-400 text-white rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-blue-300/30 dark:hover:shadow-blue-500/20 shadow-blue-200/20 dark:shadow-blue-700/10 text-center">
+                            Contact Me</a>
+                        <a href="#"
+                            class="px-8 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-900 dark:hover:border-white transition-colors text-center ">Download
+                            Resume</a>
+
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="w-72 h-72 mx-auto animate-morph bg-gradient-to-br from-blue-400 via-purple-500 to-green-300 rounded-full relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-400/50 via-purple-500/50 to-green-400/50 rounded-full blur-2xl animate-morph">
+
+                        </div>
+                        <img src="/assets/Profile.jpg" alt="profile pic"
+                            class="absolute inset-0 w-full h-full object-cover z-10 ">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-gray-50 dark:bg-gray-800 translate-y-4 transition-all duration-500 opacity-0">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 ">My Skills</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 text-center mb-16">Technologies and Tools I use to bring
+                projects</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Skill Card 1 -->
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-brands fa-html5 text-red-500 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">HTML5</h3>
+                <div class="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-[95%] h-full bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Skill Card 2 -->
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-brands fa-css3 text-blue-500 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">CSS3</h3>
+                <div class="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-[75%] h-full bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Skill Card 3 -->
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 bg-blue-400/10 rounded-full flex items-center justify-center mb-6">
+                    <img src="/assets/tailwindcss-mark.d52e9897 (1).svg " class="w-12 h-12" alt="">
+                </div>
+                <h3 class="text-xl font-bold mb-4">Tailwind</h3>
+                <div class="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-[85%] h-full bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Skill Card 4 -->
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 bg-gray-900/10 rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-brands fa-react text-blue-300 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">React</h3>
+                <div class="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-[45%] h-full bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Skill Card 5 -->
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-brands fa-js text-yellow-500 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Java Script</h3>
+                <div class="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-[70%] h-full bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
+                </div>
+            </div>
+            <!-- Skill Card 6 -->
+            <div class="bg-white dark:bg-gray-700 p-8 rounded-lg hover:scale-105 transition-all duration-300">
+                <div class="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
+                    <i
+                        class="fa-brands fa-python bg-gradient-to-br from-blue-500 to-yellow-500 bg-clip-text text-transparent text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">Python</h3>
+                <div class="w-full h-2 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <div class="w-[75%] h-full bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4  ">Featured Projects</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 text-center mb-16">
+                Check Out SOme Recent Work
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- project card 1 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ">
+                    <div class="h-48 relative">
+                        <img src="/assets/iamge search engine.jpg" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20 "></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4"> Image Serach Engine</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 h-16">
+                            A simple image search engine that allows users to search for images using keywords and view
+                            results from various sources and download it.
+                        </p>
+                        <div class="flex flex-wrap gap-2 my-6">
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">Java
+                                Script
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">API
+                            </span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://dheerajgupta9520.github.io/Image-Search-Engine/" target="_blank"
+                                class="px-4 py-2 bg-blue-400 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-300">View
+                                Project
+                            </a>
+                            <a href="https://github.com/Dheerajgupta9520/Image-Search-Engine" target="_blank"
+                                class="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500">
+                                <i class="fa-brands fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- project card 2 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-48 relative">
+                        <img src="/assets/eMathTutor.jpg" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-1 bg-black/20"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4"> eMathTutor</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 h-16">
+                            An interactive math tutoring platform that provides personalized learning experiences for
+                            students of all ages.
+                        </p>
+                        <div class="flex flex-wrap gap-2 my-6">
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">Java
+                                Script
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">API
+                            </span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://dheerajgupta9520.github.io/eMathTutor/" target="_blank"
+                                class="px-4 py-2 bg-blue-400 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-300">View
+                                Project</a>
+                            <a href="https://github.com/Dheerajgupta9520/eMathTutor" target="_blank"
+                                class="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500">
+                                <i class="fa-brands fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- project card 3 -->
+                <div
+                    class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="h-48 relative">
+                        <img src="/assets/Profile.jpg" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20 "></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4"> Crypto Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 h-16">A modern Cryptocurrency trading pltform
+                            with real-time price tracking and portfolio management
+                        </p>
+                        <div class="flex flex-wrap gap-2 my-6">
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">HTML5
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">CSS3
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">Java
+                                Script
+                            </span>
+                            <span
+                                class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-full text-sm">API
+                            </span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="#"
+                                class="px-4 py-2 bg-blue-400 text-white rounded-lg shadow hover:bg-blue-500 transition-all duration-300">View
+                                Project</a>
+                            <a href="#"
+                                class="flex items-center text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-500">
+                                <i class="fa-brands fa-github mr-2"></i>Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Get in Touch</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 text-center mb-16"> Interested in Working Together? Let's
+                Connect</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Contact Info -->
+                <div class="lg:col-span-1  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-6">
+                    <!-- Email -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                        <div
+                            class="w-12 h-12 bg-gray-700/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-envelope text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Email</h3>
+                        <p class="text-gray-600 dark:text-gray-400">dheeraj109gupta@gmail.com</p>
+                    </div>
+                    <!-- Location -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                        <div
+                            class="w-12 h-12 bg-gray-700/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-map-location-dot text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Location</h3>
+                        <p class="text-gray-600 dark:text-gray-400">402,Civil Line Kachahari road Etah</p>
+                    </div>
+                    <!-- Social -->
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                        <div
+                            class="w-12 h-12 bg-gray-700/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fa-solid fa-globe text-blue-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Social</h3>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://github.com/Dheerajgupta9520" target="_blank"
+                                class="w-10 h-10 bg-gray-100 dark:bg-gray-900 items-center justify-center rounded-full flex hover:text-blue-400 dark:hover:text-blue-500 text-gray-600 dark:text-gray-400 transition-all duration-300  ">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/dheeraj-gupta-91204521a/" target="_blank"
+                                class="w-10 h-10 bg-gray-100 dark:bg-gray-900 items-center justify-center rounded-full flex hover:text-blue-400 dark:hover:text-blue-500 text-gray-600 dark:text-gray-400 transition-all duration-300  ">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-gray-100 dark:bg-gray-900 items-center justify-center rounded-full flex hover:text-blue-400 dark:hover:text-blue-500 text-gray-600 dark:text-gray-400 transition-all duration-300  ">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-2">
+                    <form id="contactForm" class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-bold mb-2 text-center">Send Me a Message</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700
+                            bg-white dark:bg-gray-800
+                            text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors outline-none">
+                            </div>
+                            <div class="space-y-6">
+                                <label for="Email"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700
+                            bg-white dark:bg-gray-800
+                            text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors outline-none">
+                            </div>
+                            <div class="space-y-6">
+                                <label for="message"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                                <textarea type="text" id="message" name="message" required rows="6"
+                                    class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 
+                            bg-white dark:bg-gray-800
+                            text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-colors outline-none"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="bg-blue-400
+                             w-full px-8 py-2 text-white rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-blue-400/30 dark:hover:shadow-blue-600/20 shadow-blue-200/20 dark:shadow-blue-700/10 ">Send
+                                Message</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-800 pt-12 pb-3 ">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4 md:mb-8">
+                <div class="flex items-center mb-0">
+                    <span class="text-xl font-extrabold ">Dheeraj Gupta</span>
+                    <span class="text-blue-400 text-2xl ml-1">•</span>
+                </div>
+                <ul class="flex flex-wrap justify-center gap-6 mb-0">
+                    <li>
+                        <a href="#features"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Showcase</a>
+                    </li>
+                    <li>
+                        <a href="#about"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">About</a>
+                    </li>
+                    <li>
+                        <a href="#skills"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Skills</a>
+                    </li>
+                    <li>
+                        <a href="#projects"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact"
+                            class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">Contact</a>
+                    </li>
+                </ul>
+                <div class="flex gap-4">
+                    <a href="https://github.com/Dheerajgupta9520" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/dheeraj-gupta-91204521a/" target="_blank"
+                        class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"
+                        class="text-gray-600 dark:text-gray-400 hover:text-blue-400 dark:hover:text-blue-400 transition-colors"><i
+                            class="fa-brands fa-twitter"></i></a>
+                </div>
+
+            </div>
+            <div class="text-center text-gray-600 text-sm dark:text-gray-400">
+                <p>&copy; 2025 Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
