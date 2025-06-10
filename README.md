@@ -1,3 +1,4 @@
 # Portfolio
 
-This is my Personal portfolio
+This is my Personal portfolio using tailwind
+
