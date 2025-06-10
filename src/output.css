@@ -140,7 +140,7 @@
   }
   img, svg, video, canvas, audio, iframe, embed, object {
     display: block;
-    vertical-align: middle;
+    /* vertical-align: middle; */
   }
   img, video {
     max-width: 100%;
@@ -564,12 +564,14 @@
       background-color: color-mix(in oklab, var(--color-black) 10%, transparent);
     }
   }
+
   .bg-black\/20 {
     background-color: color-mix(in srgb, #000 20%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
     }
   }
+
   .bg-black\/30 {
     background-color: color-mix(in srgb, #000 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -582,6 +584,7 @@
       background-color: color-mix(in oklab, var(--color-black) 70%, transparent);
     }
   }
+
   .bg-blue-400 {
     background-color: var(--color-blue-400);
   }
@@ -1006,6 +1009,7 @@
       }
     }
   }
+
   .hover\:-translate-y-2 {
     &:hover {
       @media (hover: hover) {
@@ -1032,6 +1036,7 @@
       }
     }
   }
+
   .hover\:border-gray-900 {
     &:hover {
       @media (hover: hover) {
@@ -1303,14 +1308,16 @@
   }
 }
 @layer base {
-  html {
-    scroll-smooth: smooth;
-  }
+  /* html {
+    /* scroll-smooth: smooth; */
+   */
+
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
 @layer components {
   .container {
     margin-inline: auto;
@@ -1648,6 +1655,7 @@ section {
   syntax: "*";
   inherits: false;
 }
+
 @property --tw-scale-x {
   syntax: "*";
   inherits: false;

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',function(){
+document.addEventListener('DOMContentLoaded', function () {
     // theme toggle fuctionality
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded',function(){
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
     // Theme based on saved preference or system preference
-    if ( savedTheme === 'dark' || (!savedTheme && prefersDark) ) {
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         html.classList.add('dark');
         icon.classList.replace('fa-moon', 'fa-sun');
         document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000');
     }
 
     // Toggle Theme when button is clicked
-    themeToggle.addEventListener('click', function() {
+    themeToggle.addEventListener('click', function () {
         html.classList.toggle('dark');
 
         // update the icon
@@ -32,25 +32,25 @@ document.addEventListener('DOMContentLoaded',function(){
     });
 
     //mobile navigation toggle
-    const menuToggle= document.getElementById('menuToggle');
+    const menuToggle = document.getElementById('menuToggle');
     const closeMenu = document.getElementById('closeMenu');
     const mobileMenu = document.getElementById('mobileMenu');
-    
-    if(menuToggle && closeMenu && mobileMenu) {
-        menuToggle.addEventListener('click', function(){
+
+    if (menuToggle && closeMenu && mobileMenu) {
+        menuToggle.addEventListener('click', function () {
             mobileMenu.classList.remove('translate-x-full');
             document.body.classList.add('overflow-hidden');
         });
 
-        closeMenu.addEventListener('click', function(){
+        closeMenu.addEventListener('click', function () {
             mobileMenu.classList.add('translate-x-full');
             document.body.classList.remove('overflow-hidden');
         });
 
         // Close mobile menu when clicking on a link
-        const mobilelinks= mobileMenu.querySelectorAll('a');
+        const mobilelinks = mobileMenu.querySelectorAll('a');
         mobilelinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 mobileMenu.classList.add('translate-x-full');
                 document.body.classList.remove('overflow-hidden');
             });
@@ -60,15 +60,15 @@ document.addEventListener('DOMContentLoaded',function(){
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click',function(e){
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
 
-            const targetId= this.getAttribute('href');
+            const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
 
-            if (targetElement){
+            if (targetElement) {
                 const headerHieght = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top+window.pageYOffset-headerHieght;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHieght;
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded',function(){
     // Form submission handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             //get form data
@@ -95,39 +95,39 @@ document.addEventListener('DOMContentLoaded',function(){
 
             //SHow success message
             const button = document.querySelector('button[type="submit"]');
-            const originalText=button.textContent;
+            const originalText = button.textContent;
             button.textContent = 'Meessage Sent!';
-            
+
 
             //Reset Form
             contactForm.reset();
 
             // Reset button text after 2 seconds
-            setTimeout(() => { 
+            setTimeout(() => {
                 button.textContent = originalText;
-            },2000);
-                
+            }, 2000);
+
         })
     };
 
     //Add scroll events for header shadow and remove animations 
-    const header= document.querySelector('header');
-    const sections= document.querySelectorAll('section');
+    const header = document.querySelector('header');
+    const sections = document.querySelectorAll('section');
 
     function checkScroll() {
         //Header shadow
-        if( window.scrollY > 0){
+        if (window.scrollY > 0) {
             header.classList.add('shadow-md');
-        }else{
+        } else {
             header.classList.remove('shadow-md');
         }
 
         // Reveal animation for sections
-        sections.forEach(section=>{
+        sections.forEach(section => {
             const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight= window.innerHeight;
+            const windowHeight = window.innerHeight;
 
-            if(sectionTop<windowHeight * 0.85){
+            if (sectionTop < windowHeight * 0.85) {
                 section.classList.add('opacity-100', 'translate-y-0');
                 section.classList.remove('opacity-0', 'translate-y-10');
             }
@@ -144,13 +144,13 @@ document.addEventListener('DOMContentLoaded',function(){
         threshold: 0.1 // Trigger when 10% of the element is visible
     };
 
-    const observer= new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('opacity-100', 'translate-y-0');
                 entry.target.classList.remove('opacity-0', 'translate-y-10');
                 // Stop observing once animation is triggered
-                observer.unobserve(entry.target); 
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -158,19 +158,19 @@ document.addEventListener('DOMContentLoaded',function(){
     // Terminal animation
     const terminalContainer = document.getElementById('terminal-container');
     const terminalContent = document.querySelector('.terminal-content');
-    const commandSpan= document.querySelector('.command-text');
+    const commandSpan = document.querySelector('.command-text');
 
     if (terminalContainer && terminalContent && commandSpan) {
         const commandText = "stupid terminal, why do you exist?";
-        
+
 
         let i = 0;
-        const typeCommand = ( )=> {
-            if (i < commandText.length){
+        const typeCommand = () => {
+            if (i < commandText.length) {
                 commandSpan.textContent += commandText.charAt(i);
                 i++;
                 setTimeout(typeCommand, 50); // Adjust typing speed here
-            }else{
+            } else {
                 //Add blinking cursor effect
                 const cursor = document.createElement('span');
                 cursor.className = 'inline-block w-2 h-4 bg-gray-900 dark:bg-white ml-1 animate-blink aling-middle';
@@ -181,23 +181,23 @@ document.addEventListener('DOMContentLoaded',function(){
         // Start Typing after a delay
         setTimeout(typeCommand, 1000);
 
-        
-    }else{
+
+    } else {
         //Fallback for original terminal  structure
-        const terminal= document.querySelector('.terminal-body');
-        if(terminal){
-            const commandText= terminal.querySelector('command').textContent;
-            terminal.querySelector('.command').textContent='';
+        const terminal = document.querySelector('.terminal-body');
+        if (terminal) {
+            const commandText = terminal.querySelector('command').textContent;
+            terminal.querySelector('.command').textContent = '';
 
             let i = 0;
-            const typeCommand= () =>{
-                if (i<commandText.length){
+            const typeCommand = () => {
+                if (i < commandText.length) {
                     terminal.querySelector('.command').textContent += commandText.charAt(i);
                     i++;
                     setTimeout(typeCommand, 50); // Adjust typing speed here
-                }else{
+                } else {
                     // Add blinking cursor after typing
-                    terminal.querySelector('.command').insertAdjacentHTML('afterend','<span class="animate-blink">_</span>');
+                    terminal.querySelector('.command').insertAdjacentHTML('afterend', '<span class="animate-blink">_</span>');
                 }
             };
 
@@ -205,4 +205,213 @@ document.addEventListener('DOMContentLoaded',function(){
             setTimeout(typeCommand, 4000);
         }
     }
-});
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // theme toggle fuctionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Saved theme preference or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Theme based on saved preference or system preference
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            html.classList.add('dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000');
+        }
+
+        // Toggle Theme when button is clicked
+        themeToggle.addEventListener('click', function () {
+            html.classList.toggle('dark');
+
+            // update the icon
+            if (html.classList.contains('dark')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000000');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+                document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0070f3');
+            }
+        });
+
+        //mobile navigation toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (menuToggle && closeMenu && mobileMenu) {
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.classList.remove('overflow-hidden');
+            });
+
+            // Close mobile menu when clicking on a link
+            const mobilelinks = mobileMenu.querySelectorAll('a');
+            mobilelinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.add('translate-x-full');
+                    document.body.classList.remove('overflow-hidden');
+                });
+            });
+
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerHieght = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHieght;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                }
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                //get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                //HEre You Would tyically send the data to a server
+                //For demo process , you can log it to the console
+                console.log('Form submitted:', { name, email, message });
+
+                //SHow success message
+                const button = document.querySelector('button[type="submit"]');
+                const originalText = button.textContent;
+                button.textContent = 'Meessage Sent!';
+
+
+                //Reset Form
+                contactForm.reset();
+
+                // Reset button text after 2 seconds
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+
+            })
+        };
+
+        //Add scroll events for header shadow and remove animations 
+        const header = document.querySelector('header');
+        const sections = document.querySelectorAll('section');
+
+        function checkScroll() {
+            //Header shadow
+            if (window.scrollY > 0) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+
+            // Reveal animation for sections
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.85) {
+                    section.classList.add('opacity-100', 'translate-y-0');
+                    section.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkScroll);
+        //run on page load
+        checkScroll();
+
+        // Add Intersection observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    // Stop observing once animation is triggered
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Terminal animation
+        const terminalContainer = document.getElementById('terminal-container');
+        const terminalContent = document.querySelector('.terminal-content');
+        const commandSpan = document.querySelector('.command-text');
+
+        if (terminalContainer && terminalContent && commandSpan) {
+            const commandText = "stupid terminal, why do you exist?";
+
+
+            let i = 0;
+            const typeCommand = () => {
+                if (i < commandText.length) {
+                    commandSpan.textContent += commandText.charAt(i);
+                    i++;
+                    setTimeout(typeCommand, 50); // Adjust typing speed here
+                } else {
+                    //Add blinking cursor effect
+                    const cursor = document.createElement('span');
+                    cursor.className = 'inline-block w-2 h-4 bg-gray-900 dark:bg-white ml-1 animate-blink aling-middle';
+                    terminalContent.appendChild(cursor)
+                }
+            };
+
+            // Start Typing after a delay
+            setTimeout(typeCommand, 1000);
+
+
+        } else {
+            //Fallback for original terminal  structure
+            const terminal = document.querySelector('.terminal-body');
+            if (terminal) {
+                const commandText = terminal.querySelector('command').textContent;
+                terminal.querySelector('.command').textContent = '';
+
+                let i = 0;
+                const typeCommand = () => {
+                    if (i < commandText.length) {
+                        terminal.querySelector('.command').textContent += commandText.charAt(i);
+                        i++;
+                        setTimeout(typeCommand, 50); // Adjust typing speed here
+                    } else {
+                        // Add blinking cursor after typing
+                        terminal.querySelector('.command').insertAdjacentHTML('afterend', '<span class="animate-blink">_</span>');
+                    }
+                };
+
+                //start typing after a delay
+                setTimeout(typeCommand, 4000);
+            }
+        }
+    })
+}) 
