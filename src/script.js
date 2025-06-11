@@ -287,36 +287,47 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // Form submission handling
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
+        // const contactForm = document.getElementById('contactForm');
+        // if (contactForm) {
+        //     contactForm.addEventListener('submit', function (e) {
+        //         e.preventDefault();
 
-                //get form data
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
+        //         //get form data
+        //         const name = document.getElementById('name').value;
+        //         const email = document.getElementById('email').value;
+        //         const message = document.getElementById('message').value;
 
-                //HEre You Would tyically send the data to a server
-                //For demo process , you can log it to the console
-                console.log('Form submitted:', { name, email, message });
+        //         //HEre You Would tyically send the data to a server
+        //         //For demo process , you can log it to the console
+        //         console.log('Form submitted:', { name, email, message });
 
-                //SHow success message
-                const button = document.querySelector('button[type="submit"]');
-                const originalText = button.textContent;
-                button.textContent = 'Meessage Sent!';
+        //         //SHow success message
+        //         const button = document.querySelector('button[type="submit"]');
+        //         const originalText = button.textContent;
+        //         button.textContent = 'Meessage Sent!';
 
 
-                //Reset Form
-                contactForm.reset();
+        //         //Reset Form
+        //         contactForm.reset();
 
-                // Reset button text after 2 seconds
-                setTimeout(() => {
-                    button.textContent = originalText;
-                }, 2000);
+        //         // Reset button text after 2 seconds
+        //         setTimeout(() => {
+        //             button.textContent = originalText;
+        //         }, 2000);
 
-            })
-        };
+        //     })
+        // };
+        
+
+        function sendmail(){
+            let parms = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            }; 
+            emailjs.send('service_att1lcv','template_l7dfgn1',parms).then(alert("Mesaage Sent!"));
+        }
+        document.getElementById('submit-button').addEventListener('click',sendmail());
 
         //Add scroll events for header shadow and remove animations 
         const header = document.querySelector('header');
