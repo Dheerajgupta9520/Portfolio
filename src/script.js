@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const commandSpan = document.querySelector('.command-text');
 
     if (terminalContainer && terminalContent && commandSpan) {
-        const commandText = "stupid terminal, why do you exist?";
+        const commandText = "https://github.com/Dheerajgupta9520/Portfolio";
 
 
         let i = 0;
